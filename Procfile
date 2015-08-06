@@ -1,0 +1,1 @@
+worker: ruby the_wraith.rb
