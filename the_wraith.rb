@@ -20,7 +20,8 @@ for i in 0..tweets.length
   iterator = File.read('database.txt').to_i
   client.update(tweets[iterator])
   iterator += 1
-  File.write('database.txt', i)	
+  File.write('database.txt', i)
+  sleep 3600	
 end
 
 client.update("as raining out of a low sky, and the tide was way out.")
