@@ -18,8 +18,8 @@ tweets = contents.scan(/.{137}/)
 #of this script
 for i in 0..tweets.length
   iterator = File.read('database.txt').to_i
-  client.update(tweets[i])
-  i += 1
+  puts (tweets[iterator])
+  iterator += 1
   File.write('database.txt', i)	
 end
 
