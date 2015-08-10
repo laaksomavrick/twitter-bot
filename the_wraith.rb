@@ -12,18 +12,12 @@ contents = file.read
 contents = contents.split.join(' ')
 tweets = contents.scan(/.{137}/)
 
-#this is not ideal code in itself, but necessary given Heroku's sleep mode for
-#free apps. database.txt acts as a database for saving the progress of iteration
-#whether or not the app sleeps (thus losing progress, as in the previous iteration)
-#of this script
-for i in 0..tweets.length
-  iterator = File.read('database.txt').to_i
-  client.update(tweets[iterator])
-  iterator += 1
-  File.write('database.txt', i)
-  sleep 3600	
+iteration = tweets.length
+
+iteration.times do
+	client.update(tweets.sample)
+	sleep 14400
 end
 
-client.update("as raining out of a low sky, and the tide was way out.")
 
 
