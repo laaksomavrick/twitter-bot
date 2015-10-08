@@ -12,11 +12,11 @@ end
 file = File.open("ij2.txt")
 contents = file.read
 contents = contents.split.join(' ')
-tweets = contents.scan(/.{137}/)
+tweets = contents.scan(/\s.{137}\s/).map(&:strip)
 
-iteration = tweets.length
 
-iteration.times do
+
+tweets.length.times do
 	client.update(tweets.sample + "...")
 	sleep 14400
 end
